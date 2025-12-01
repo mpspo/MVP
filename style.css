@@ -1,0 +1,415 @@
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    color: #4A4A4A;
+    background: linear-gradient(180deg, #F5F5FA 0%, #FFFFFF 100%);
+    min-height: 100vh;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* ===== HEADER ===== */
+.header {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 600;
+    color: #161623;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 48px;
+}
+
+.nav-column {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.nav-link {
+    font-size: 13px;
+    color: #8C8C96;
+    transition: color 0.2s ease;
+}
+
+.nav-link.active {
+    color: #161623;
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: #161623;
+}
+
+.menu-button {
+    background: #FFFFFF;
+    border: 1px solid #E0E0E5;
+    border-radius: 999px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #161623;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.menu-button:hover {
+    background: #F9F9FB;
+    border-color: #D0D0D5;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 70px 60px 80px;
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.hero-intro {
+    font-size: 16px;
+    color: #9B9BA4;
+    font-weight: 400;
+    margin-bottom: 16px;
+}
+
+.hero-title {
+    font-size: 52px;
+    font-weight: 800;
+    color: #161623;
+    line-height: 1.2;
+    margin-bottom: 40px;
+    letter-spacing: -0.5px;
+}
+
+.hero-cta {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.cta-button {
+    background: #191A2B;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    border-radius: 999px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    background: #0F1020;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(25, 26, 43, 0.2);
+}
+
+.hero-subtitle {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.subtitle-primary {
+    color: #4A4A4A;
+    font-weight: 500;
+}
+
+.subtitle-secondary {
+    color: #7B7B88;
+    font-weight: 400;
+}
+
+/* Hero Decorations */
+.hero-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.deco-circle {
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    opacity: 0.15;
+}
+
+.deco-star {
+    position: absolute;
+    top: 45%;
+    right: 25%;
+    opacity: 0.2;
+}
+
+/* ===== CARDS SECTION ===== */
+.cards-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    width: 100%;
+}
+
+.card {
+    position: relative;
+    min-height: 280px;
+    padding: 32px;
+    overflow: hidden;
+}
+
+.card-badge {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+}
+
+.card-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Card 1: Learn from best mentors */
+.card-1 {
+    background: linear-gradient(135deg, #F9F5F0 0%, #F0F0F5 100%);
+}
+
+.mentors-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.avatars {
+    display: flex;
+    gap: -8px;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF;
+    margin-left: -8px;
+}
+
+.avatar:first-child {
+    margin-left: 0;
+}
+
+.mentors-text {
+    font-size: 16px;
+    color: #161623;
+    font-weight: 500;
+}
+
+.card-button {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 999px;
+    padding: 12px 24px;
+    font-size: 13px;
+    color: #161623;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.card-button:hover {
+    background: rgba(255, 255, 255, 0.35);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Card 2: Features List */
+.card-2 {
+    background: linear-gradient(135deg, #FF6F61 0%, #FF9E4A 50%, #FFB8A8 100%);
+    position: relative;
+}
+
+.card-2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    transform: skewX(-15deg);
+    transform-origin: top;
+}
+
+.features-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-left: 8px;
+}
+
+.features-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+/* Card 3: Stats */
+.card-3 {
+    background: linear-gradient(135deg, #A050FF 0%, #7A5AF8 30%, #4A9DFF 100%);
+    position: relative;
+}
+
+.card-3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.3;
+}
+
+.stats-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stats-number {
+    font-size: 40px;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1;
+}
+
+.stats-text {
+    font-size: 14px;
+    color: #FFFFFF;
+    line-height: 1.5;
+    max-width: 200px;
+    padding-top: 4px;
+}
+
+.arrow-down {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    opacity: 0.8;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1200px) {
+    .header-container,
+    .hero-container {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .hero-title {
+        font-size: 44px;
+    }
+
+    .cards-section {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        min-height: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}
