@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerSim Dashboard</title>
+    <link rel="stylesheet" href="career-dashboard.css">
+</head>
+<body>
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+        <!-- User Info -->
+        <div class="user-info">
+            <p class="signed-in-label">Signed in as</p>
+            <h3 class="user-name">Louis Litt</h3>
+            <div class="brand-name">CareerSim</div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <button class="nav-link active" data-target="page-dashboard" data-title="Dashboard">
+                    <span class="nav-icon">●</span>
+                    <span class="nav-text">Dashboard Overview</span>
+                </button>
+            </div>
+
+            <div class="nav-section">
+                <h4 class="nav-section-title">Career Tools</h4>
+                <button class="nav-link" data-target="page-interview" data-title="AI Interview Simulator">
+                    <span class="nav-icon">◉</span>
+                    <span class="nav-text">AI Interview Simulator</span>
+                </button>
+                <button class="nav-link" data-target="page-cv" data-title="AI CV Analyzer">
+                    <span class="nav-icon">◉</span>
+                    <span class="nav-text">AI CV Analyzer</span>
+                </button>
+                <button class="nav-link" data-target="page-strengths" data-title="AI Strengths & Weaknesses">
+                    <span class="nav-icon">◉</span>
+                    <span class="nav-text">AI Strengths & Weaknesses</span>
+                </button>
+                <button class="nav-link" data-target="page-cover-letter" data-title="Cover Letter Assistant">
+                    <span class="nav-icon">◉</span>
+                    <span class="nav-text">Cover Letter Assistant</span>
+                </button>
+                <button class="nav-link" data-target="page-university" data-title="AI University Finder">
+                    <span class="nav-icon">◉</span>
+                    <span class="nav-text">AI University Finder</span>
+                </button>
+                <button class="nav-link" data-target="page-roadmap" data-title="Career Roadmap">
+                    <span class="nav-icon">◉</span>
+                    <span class="nav-text">Career Roadmap</span>
+                </button>
+                <button class="nav-link" data-target="page-profile" data-title="Personal Profile">
+                    <span class="nav-icon">◉</span>
+                    <span class="nav-text">Personal Profile</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Footer Links -->
+        <div class="sidebar-footer">
+            <a href="#" class="footer-link">Help & Support</a>
+            <a href="#" class="footer-link">Settings</a>
+        </div>
+    </aside>
+
+    <!-- Right Content Area -->
+    <div class="main-wrapper">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <h1 class="page-title" id="current-page-title">Dashboard</h1>
+            <div class="top-bar-actions">
+                <button class="top-action-link" data-target="page-dashboard" data-title="Dashboard">Dashboard</button>
+                <button class="top-action-link" data-target="page-profile" data-title="Personal Profile">Profile</button>
+                <button class="logout-btn">Log Out</button>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+        <main class="content-area">
+            <!-- Page: Dashboard Overview -->
+            <section id="page-dashboard" class="page active">
+                <div class="page-header">
+                    <h2 class="page-heading">Welcome back, Louis</h2>
+                    <p class="page-description">Your personal career development hub. Use the tools below to practice interviews, optimize your CV, discover your strengths, and plan your next career steps with AI-powered insights.</p>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="feature-card">
+                        <h3 class="card-title">AI Interview Simulator</h3>
+                        <p class="card-description">Practice job interviews with realistic AI-driven questions.</p>
+                        <button class="card-link nav-link" data-target="page-interview" data-title="AI Interview Simulator">
+                            Open tool <span class="arrow">→</span>
+                        </button>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="card-title">AI CV Analyzer</h3>
+                        <p class="card-description">Get instant feedback on your CV and optimize it for your target roles.</p>
+                        <button class="card-link nav-link" data-target="page-cv" data-title="AI CV Analyzer">
+                            Open tool <span class="arrow">→</span>
+                        </button>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="card-title">AI Strengths & Weaknesses</h3>
+                        <p class="card-description">Discover your key strengths and areas to improve.</p>
+                        <button class="card-link nav-link" data-target="page-strengths" data-title="AI Strengths & Weaknesses">
+                            Open tool <span class="arrow">→</span>
+                        </button>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="card-title">Cover Letter Assistant</h3>
+                        <p class="card-description">Generate tailored cover letters for each application.</p>
+                        <button class="card-link nav-link" data-target="page-cover-letter" data-title="Cover Letter Assistant">
+                            Open tool <span class="arrow">→</span>
+                        </button>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="card-title">AI University Finder</h3>
+                        <p class="card-description">Find programs and universities that match your profile.</p>
+                        <button class="card-link nav-link" data-target="page-university" data-title="AI University Finder">
+                            Open tool <span class="arrow">→</span>
+                        </button>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="card-title">Career Roadmap</h3>
+                        <p class="card-description">Plan your next steps and milestones.</p>
+                        <button class="card-link nav-link" data-target="page-roadmap" data-title="Career Roadmap">
+                            Open tool <span class="arrow">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Statistics Panel -->
+                <div class="stats-panel">
+                    <h3 class="stats-title">Your Activity</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Interview Simulations</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">5</div>
+                            <div class="stat-label">CV Analyses</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">8</div>
+                            <div class="stat-label">Cover Letters Generated</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page: AI Interview Simulator -->
+            <section id="page-interview" class="page">
+                <div class="page-header">
+                    <h2 class="page-heading">AI Interview Simulator</h2>
+                    <p class="page-description">Practice realistic job interviews with our AI interviewer. Select your target position and industry to get started with personalized questions.</p>
+                </div>
+
+                <div class="two-column-layout">
+                    <div class="column">
+                        <div class="form-container">
+                            <h3 class="form-title">Setup Interview</h3>
+                            <div class="form-group">
+                                <label for="target-position">Target Position</label>
+                                <input type="text" id="target-position" class="input-field" placeholder="e.g., Product Manager">
+                            </div>
+                            <div class="form-group">
+                                <label for="industry">Industry</label>
+                                <input type="text" id="industry" class="input-field" placeholder="e.g., Technology">
+                            </div>
+                            <div class="form-group">
+                                <label for="experience-level">Experience Level</label>
+                                <select id="experience-level" class="input-field">
+                                    <option>Entry Level</option>
+                                    <option>Mid-Level</option>
+                                    <option>Senior</option>
+                                    <option>Executive</option>
+                                </select>
+                            </div>
+                            <button class="btn-primary">Start Simulation</button>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="preview-container">
+                            <h3 class="preview-title">Simulation Preview</h3>
+                            <div class="conversation-preview">
+                                <div class="message ai-message">
+                                    <strong>AI Interviewer:</strong> Hello! Thank you for joining us today. Can you start by telling me about yourself?
+                                </div>
+                                <div class="message user-message">
+                                    <strong>You:</strong> Hi! I'm a product manager with 5 years of experience in tech startups...
+                                </div>
+                                <div class="message ai-message">
+                                    <strong>AI Interviewer:</strong> That's great. Can you describe a challenging project you led recently?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page: AI CV Analyzer -->
+            <section id="page-cv" class="page">
+                <div class="page-header">
+                    <h2 class="page-heading">AI CV Analyzer</h2>
+                    <p class="page-description">Upload or paste your CV text to receive instant feedback and recommendations for improvement.</p>
+                </div>
+
+                <div class="upload-container">
+                    <div class="upload-area">
+                        <p class="upload-text">Drop your CV here or paste the text</p>
+                        <textarea class="cv-textarea" placeholder="Paste your CV content here..." rows="10"></textarea>
+                        <button class="btn-primary">Analyze CV</button>
+                    </div>
+                </div>
+
+                <div class="results-section">
+                    <h3 class="results-title">Analysis Results</h3>
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <h4 class="result-card-title">Overall Score</h4>
+                            <div class="score-display">8.5/10</div>
+                            <p class="result-card-text">Your CV is well-structured with clear experience sections.</p>
+                        </div>
+                        <div class="result-card">
+                            <h4 class="result-card-title">Key Strengths</h4>
+                            <ul class="result-list">
+                                <li>Clear professional summary</li>
+                                <li>Quantified achievements</li>
+                                <li>Relevant skills section</li>
+                                <li>Good formatting</li>
+                            </ul>
+                        </div>
+                        <div class="result-card">
+                            <h4 class="result-card-title">Recommended Changes</h4>
+                            <ul class="result-list">
+                                <li>Add more action verbs</li>
+                                <li>Include specific metrics</li>
+                                <li>Tailor to job description</li>
+                                <li>Highlight recent projects</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page: AI Strengths & Weaknesses -->
+            <section id="page-strengths" class="page">
+                <div class="page-header">
+                    <h2 class="page-heading">AI Strengths & Weaknesses</h2>
+                    <p class="page-description">Describe your experience, skills, and past roles to receive an AI-powered analysis of your strengths and areas for improvement.</p>
+                </div>
+
+                <div class="two-column-layout">
+                    <div class="column">
+                        <div class="form-container">
+                            <h3 class="form-title">Your Experience</h3>
+                            <div class="form-group">
+                                <label for="experience-text">Describe your experience, skills and past roles</label>
+                                <textarea id="experience-text" class="input-field textarea-large" rows="12" placeholder="Tell us about your professional background, key projects, technical skills, soft skills, and any challenges you've overcome..."></textarea>
+                            </div>
+                            <button class="btn-primary">Run Analysis</button>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="analysis-results">
+                            <div class="analysis-box strengths-box">
+                                <h3 class="analysis-box-title">Identified Strengths</h3>
+                                <ul class="analysis-list">
+                                    <li>Strong leadership and team management</li>
+                                    <li>Data-driven decision making</li>
+                                    <li>Excellent communication skills</li>
+                                    <li>Strategic thinking and planning</li>
+                                    <li>Cross-functional collaboration</li>
+                                </ul>
+                            </div>
+
+                            <div class="analysis-box improvements-box">
+                                <h3 class="analysis-box-title">Areas to Improve</h3>
+                                <ul class="analysis-list">
+                                    <li>Technical depth in specific tools</li>
+                                    <li>Public speaking experience</li>
+                                    <li>International market knowledge</li>
+                                    <li>Advanced data analytics</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page: Cover Letter Assistant -->
+            <section id="page-cover-letter" class="page">
+                <div class="page-header">
+                    <h2 class="page-heading">Cover Letter Assistant</h2>
+                    <p class="page-description">Generate personalized cover letters tailored to specific job applications using AI.</p>
+                </div>
+
+                <div class="form-container full-width">
+                    <h3 class="form-title">Job Details</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="job-title">Job Title</label>
+                            <input type="text" id="job-title" class="input-field" placeholder="e.g., Senior Product Manager">
+                        </div>
+                        <div class="form-group">
+                            <label for="company-name">Company Name</label>
+                            <input type="text" id="company-name" class="input-field" placeholder="e.g., Tech Corp">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="job-url">Link to Job Posting (optional)</label>
+                        <input type="url" id="job-url" class="input-field" placeholder="https://...">
+                    </div>
+                    <div class="form-group">
+                        <label for="about-summary">Short summary about you</label>
+                        <textarea id="about-summary" class="input-field" rows="4" placeholder="Brief summary of your background and why you're interested in this role..."></textarea>
+                    </div>
+                    <button class="btn-primary">Generate Cover Letter</button>
+                </div>
+
+                <div class="results-section">
+                    <div class="generated-content">
+                        <h3 class="generated-title">Generated Cover Letter</h3>
+                        <div class="letter-preview">
+                            <p><strong>Dear Hiring Manager,</strong></p>
+                            <p>I am writing to express my strong interest in the Senior Product Manager position at Tech Corp. With over 5 years of experience in product management and a proven track record of delivering successful digital products, I am confident in my ability to contribute to your team's success.</p>
+                            <p>Throughout my career, I have led cross-functional teams to launch innovative products that have driven significant business growth. My experience in agile methodologies, user research, and data-driven decision-making aligns perfectly with the requirements outlined in your job posting.</p>
+                            <p>I am particularly drawn to Tech Corp's mission and would be excited to bring my skills in product strategy and stakeholder management to your organization.</p>
+                            <p>Thank you for considering my application. I look forward to discussing how I can contribute to your team.</p>
+                            <p><strong>Sincerely,</strong><br>Louis Litt</p>
+                        </div>
+                        <button class="btn-secondary">Copy to Clipboard</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page: AI University Finder -->
+            <section id="page-university" class="page">
+                <div class="page-header">
+                    <h2 class="page-heading">AI University Finder</h2>
+                    <p class="page-description">Discover universities and programs that match your academic goals and preferences.</p>
+                </div>
+
+                <div class="filter-section">
+                    <h3 class="filter-title">Search Criteria</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <input type="text" id="country" class="input-field" placeholder="e.g., Germany">
+                        </div>
+                        <div class="form-group">
+                            <label for="field-of-study">Field of Study</label>
+                            <input type="text" id="field-of-study" class="input-field" placeholder="e.g., Computer Science">
+                        </div>
+                        <div class="form-group">
+                            <label for="degree-level">Degree Level</label>
+                            <select id="degree-level" class="input-field">
+                                <option>Bachelor</option>
+                                <option>Master</option>
+                                <option>PhD</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn-primary">Find Programs</button>
+                </div>
+
+                <div class="results-section">
+                    <h3 class="results-title">Matching Programs</h3>
+                    <div class="university-cards">
+                        <div class="university-card">
+                            <h4 class="university-name">Technical University of Munich</h4>
+                            <p class="university-location">Munich, Germany</p>
+                            <p class="university-program">Master in Computer Science</p>
+                            <p class="university-details">Duration: 2 years | Language: English | Tuition: €150/semester</p>
+                            <button class="btn-link">View details →</button>
+                        </div>
+
+                        <div class="university-card">
+                            <h4 class="university-name">RWTH Aachen University</h4>
+                            <p class="university-location">Aachen, Germany</p>
+                            <p class="university-program">Master in Data Science</p>
+                            <p class="university-details">Duration: 2 years | Language: English | Tuition: €300/semester</p>
+                            <button class="btn-link">View details →</button>
+                        </div>
+
+                        <div class="university-card">
+                            <h4 class="university-name">University of Mannheim</h4>
+                            <p class="university-location">Mannheim, Germany</p>
+                            <p class="university-program">Master in Business Informatics</p>
+                            <p class="university-details">Duration: 2 years | Language: English/German | Tuition: €180/semester</p>
+                            <button class="btn-link">View details →</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page: Career Roadmap -->
+            <section id="page-roadmap" class="page">
+                <div class="page-header">
+                    <h2 class="page-heading">Career Roadmap</h2>
+                    <p class="page-description">Plan your career journey with clear milestones and actionable steps.</p>
+                </div>
+
+                <div class="roadmap-container">
+                    <div class="roadmap-steps">
+                        <div class="roadmap-step">
+                            <div class="step-badge">Now</div>
+                            <h3 class="step-title">Assess Skills & Interests</h3>
+                            <p class="step-description">Complete skills assessment, identify strengths and weaknesses, clarify career goals.</p>
+                        </div>
+
+                        <div class="roadmap-step">
+                            <div class="step-badge">6 Months</div>
+                            <h3 class="step-title">Target Internships or Junior Roles</h3>
+                            <p class="step-description">Apply to relevant positions, build portfolio projects, expand professional network.</p>
+                        </div>
+
+                        <div class="roadmap-step">
+                            <div class="step-badge">1-2 Years</div>
+                            <h3 class="step-title">Develop Specialization</h3>
+                            <p class="step-description">Gain deeper expertise in chosen field, take on more responsibility, pursue certifications.</p>
+                        </div>
+
+                        <div class="roadmap-step">
+                            <div class="step-badge">3-5 Years</div>
+                            <h3 class="step-title">Move to Senior Roles</h3>
+                            <p class="step-description">Lead projects and teams, mentor junior colleagues, explore management or specialist tracks.</p>
+                        </div>
+                    </div>
+
+                    <div class="next-actions">
+                        <h3 class="actions-title">Next Actions</h3>
+                        <ul class="actions-list">
+                            <li>
+                                <input type="checkbox" id="action-1">
+                                <label for="action-1">Complete AI CV Analyzer assessment</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="action-2">
+                                <label for="action-2">Practice 3 mock interviews this week</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="action-3">
+                                <label for="action-3">Update LinkedIn profile</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="action-4">
+                                <label for="action-4">Research 5 target companies</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="action-5">
+                                <label for="action-5">Network with 2 industry professionals</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page: Personal Profile -->
+            <section id="page-profile" class="page">
+                <div class="page-header">
+                    <h2 class="page-heading">Personal Profile</h2>
+                    <p class="page-description">Manage your personal information and career preferences.</p>
+                </div>
+
+                <div class="profile-header">
+                    <div class="profile-avatar">LL</div>
+                    <div class="profile-info">
+                        <h3 class="profile-name">Louis Litt</h3>
+                        <p class="profile-meta">Career focus: Product Management</p>
+                        <p class="profile-meta">Location: Berlin, Germany</p>
+                    </div>
+                </div>
+
+                <div class="form-container full-width">
+                    <h3 class="form-title">Personal Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="profile-name">Full Name</label>
+                            <input type="text" id="profile-name" class="input-field" value="Louis Litt">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-email">Email Address</label>
+                            <input type="email" id="profile-email" class="input-field" value="louis.litt@example.com">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="profile-location">Location</label>
+                            <input type="text" id="profile-location" class="input-field" value="Berlin, Germany">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-phone">Phone Number</label>
+                            <input type="tel" id="profile-phone" class="input-field" placeholder="+49 ...">
+                        </div>
+                    </div>
+
+                    <h3 class="form-title">Career Preferences</h3>
+                    <div class="form-group">
+                        <label for="desired-roles">Desired Roles</label>
+                        <input type="text" id="desired-roles" class="input-field" placeholder="e.g., Product Manager, Project Manager">
+                    </div>
+                    <div class="form-group">
+                        <label for="desired-industries">Desired Industries</label>
+                        <input type="text" id="desired-industries" class="input-field" placeholder="e.g., Technology, Finance, Healthcare">
+                    </div>
+                    <div class="form-group">
+                        <label for="bio">Professional Bio</label>
+                        <textarea id="bio" class="input-field" rows="4" placeholder="Brief summary of your professional background..."></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="btn-primary">Save Changes</button>
+                        <button class="btn-secondary">Cancel</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Navigation Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+            const pageTitle = document.getElementById('current-page-title');
+            const topActionLinks = document.querySelectorAll('.top-action-link');
+
+            function switchPage(targetId, title) {
+                // Hide all pages
+                pages.forEach(page => page.classList.remove('active'));
+                
+                // Show target page
+                const targetPage = document.getElementById(targetId);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                }
+
+                // Update page title
+                if (pageTitle && title) {
+                    pageTitle.textContent = title;
+                }
+
+                // Update active nav link
+                navLinks.forEach(link => link.classList.remove('active'));
+                const activeLink = document.querySelector(`.nav-link[data-target="${targetId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+
+            // Sidebar navigation
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.getAttribute('data-target');
+                    const title = this.getAttribute('data-title');
+                    switchPage(target, title);
+                });
+            });
+
+            // Top bar navigation
+            topActionLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.getAttribute('data-target');
+                    const title = this.getAttribute('data-title');
+                    switchPage(target, title);
+                });
+            });
+
+            // Logout button
+            const logoutBtn = document.querySelector('.logout-btn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function() {
+                    alert('Logging out...');
+                    // Add actual logout logic here
+                });
+            }
+        });
+    </script>
+</body>
+</html>
