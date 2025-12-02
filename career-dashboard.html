@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CareerSim Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="career-dashboard.css">
 </head>
 <body>
@@ -71,8 +74,6 @@
         <header class="top-bar">
             <h1 class="page-title" id="current-page-title">Dashboard</h1>
             <div class="top-bar-actions">
-                <button class="top-action-link" data-target="page-dashboard" data-title="Dashboard">Dashboard</button>
-                <button class="top-action-link" data-target="page-profile" data-title="Personal Profile">Profile</button>
                 <button class="logout-btn">Log Out</button>
             </div>
         </header>
@@ -534,7 +535,6 @@
             const navLinks = document.querySelectorAll('.nav-link');
             const pages = document.querySelectorAll('.page');
             const pageTitle = document.getElementById('current-page-title');
-            const topActionLinks = document.querySelectorAll('.top-action-link');
 
             function switchPage(targetId, title) {
                 // Hide all pages
@@ -561,16 +561,6 @@
 
             // Sidebar navigation
             navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = this.getAttribute('data-target');
-                    const title = this.getAttribute('data-title');
-                    switchPage(target, title);
-                });
-            });
-
-            // Top bar navigation
-            topActionLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const target = this.getAttribute('data-target');

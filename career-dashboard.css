@@ -3,13 +3,13 @@
     --redo-orange: #FA9819;
     --redo-blue-tint: #B6C9CF;
     --redo-baby-blue: #C6EBF7;
-    --redo-text: #333333;
+    --redo-text: #111111;
     --redo-dark: #111111;
     --redo-border: #E5E5E5;
     --redo-bg: #FFFFFF;
-    --redo-gray-light: #F9F9F9;
-    --redo-gray-text: #666666;
-    --redo-gray-label: #999999;
+    --redo-gray-light: #FAFAFA;
+    --redo-gray-text: #8C8C96;
+    --redo-gray-label: #B0B0B8;
 }
 
 /* ===== RESET & BASE ===== */
@@ -20,12 +20,14 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Rethink Sans", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
     color: var(--redo-text);
     background: var(--redo-bg);
     display: flex;
     min-height: 100vh;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 button {
@@ -63,16 +65,18 @@ input, textarea, select {
 }
 
 .user-name {
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 600;
     color: var(--redo-dark);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
 }
 
 .brand-name {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--redo-gray-text);
-    font-weight: 600;
+    font-weight: 500;
+    letter-spacing: -0.01em;
 }
 
 /* Sidebar Navigation */
@@ -90,7 +94,7 @@ input, textarea, select {
     font-weight: 600;
     color: var(--redo-gray-label);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
     padding: 8px 24px;
     margin-bottom: 4px;
 }
@@ -100,23 +104,27 @@ input, textarea, select {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 10px 24px;
-    font-size: 14px;
-    color: var(--redo-dark);
+    padding: 9px 24px;
+    font-size: 13px;
+    color: var(--redo-gray-text);
     background: transparent;
     text-align: left;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
     position: relative;
     border: none;
+    font-weight: 400;
+    letter-spacing: -0.01em;
 }
 
 .nav-link:hover {
-    background: rgba(198, 235, 247, 0.2);
+    color: var(--redo-dark);
+    background: transparent;
 }
 
 .nav-link.active {
-    background: rgba(198, 235, 247, 0.3);
-    font-weight: 600;
+    color: var(--redo-dark);
+    background: transparent;
+    font-weight: 500;
 }
 
 .nav-link.active::before {
@@ -125,13 +133,18 @@ input, textarea, select {
     left: 0;
     top: 0;
     bottom: 0;
-    width: 3px;
+    width: 2px;
     background: var(--redo-orange);
 }
 
 .nav-icon {
+    color: var(--redo-gray-label);
+    font-size: 10px;
+    transition: color 0.15s ease;
+}
+
+.nav-link.active .nav-icon {
     color: var(--redo-orange);
-    font-size: 12px;
 }
 
 /* Sidebar Footer */
@@ -177,9 +190,10 @@ input, textarea, select {
 }
 
 .page-title {
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 600;
     color: var(--redo-dark);
+    letter-spacing: -0.02em;
 }
 
 .top-bar-actions {
@@ -188,33 +202,22 @@ input, textarea, select {
     gap: 20px;
 }
 
-.top-action-link {
-    font-size: 14px;
-    color: var(--redo-text);
-    background: transparent;
-    padding: 8px 12px;
-    transition: all 0.2s ease;
-}
-
-.top-action-link:hover {
-    color: var(--redo-orange);
-    text-decoration: underline;
-}
-
 .logout-btn {
     background: var(--redo-bg);
-    border: 1px solid var(--redo-orange);
-    color: var(--redo-orange);
-    font-size: 14px;
-    font-weight: 600;
-    padding: 10px 24px;
-    border-radius: 999px;
+    border: 1px solid var(--redo-border);
+    color: var(--redo-dark);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 9px 20px;
+    border-radius: 6px;
     transition: all 0.2s ease;
+    letter-spacing: -0.01em;
 }
 
 .logout-btn:hover {
-    background: var(--redo-orange);
+    background: var(--redo-dark);
     color: var(--redo-bg);
+    border-color: var(--redo-dark);
 }
 
 /* ===== CONTENT AREA ===== */
@@ -240,17 +243,19 @@ input, textarea, select {
 }
 
 .page-heading {
-    font-size: 36px;
-    font-weight: 700;
+    font-size: 32px;
+    font-weight: 600;
     color: var(--redo-dark);
     margin-bottom: 12px;
+    letter-spacing: -0.03em;
 }
 
 .page-description {
-    font-size: 16px;
+    font-size: 15px;
     color: var(--redo-gray-text);
-    line-height: 1.6;
-    max-width: 800px;
+    line-height: 1.65;
+    max-width: 720px;
+    font-weight: 400;
 }
 
 /* ===== CARDS GRID (DASHBOARD) ===== */
@@ -264,43 +269,46 @@ input, textarea, select {
 .feature-card {
     background: var(--redo-bg);
     border: 1px solid var(--redo-border);
-    border-radius: 10px;
-    padding: 24px;
+    border-radius: 8px;
+    padding: 28px;
     transition: all 0.2s ease;
 }
 
 .feature-card:hover {
-    border-color: var(--redo-orange);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-color: #D0D0D5;
+    transform: translateY(-2px);
 }
 
 .card-title {
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 600;
     color: var(--redo-dark);
     margin-bottom: 8px;
+    letter-spacing: -0.01em;
 }
 
 .card-description {
     font-size: 14px;
     color: var(--redo-gray-text);
-    margin-bottom: 16px;
-    line-height: 1.5;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-weight: 400;
 }
 
 .card-link {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--redo-orange);
-    font-weight: 600;
+    font-weight: 500;
     background: transparent;
     padding: 0;
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
+    letter-spacing: -0.01em;
 }
 
 .card-link:hover {
-    text-decoration: underline;
+    opacity: 0.8;
 }
 
 .arrow {
@@ -311,9 +319,9 @@ input, textarea, select {
 .stats-panel {
     background: var(--redo-gray-light);
     border: 1px solid var(--redo-border);
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 32px;
-    margin-top: 40px;
+    margin-top: 48px;
 }
 
 .stats-title {
@@ -361,7 +369,7 @@ input, textarea, select {
 .form-container {
     background: var(--redo-bg);
     border: 1px solid var(--redo-border);
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 32px;
 }
 
@@ -388,26 +396,28 @@ input, textarea, select {
 
 .form-group label {
     display: block;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 500;
     color: var(--redo-dark);
     margin-bottom: 8px;
+    letter-spacing: -0.01em;
 }
 
 .input-field {
     width: 100%;
-    padding: 12px 16px;
+    padding: 11px 14px;
     font-size: 14px;
     color: var(--redo-dark);
     background: var(--redo-bg);
     border: 1px solid var(--redo-border);
     border-radius: 6px;
     transition: all 0.2s ease;
+    font-weight: 400;
 }
 
 .input-field:focus {
     outline: none;
-    border-color: var(--redo-orange);
+    border-color: var(--redo-dark);
 }
 
 .textarea-large {
@@ -417,17 +427,18 @@ input, textarea, select {
 
 /* ===== BUTTONS ===== */
 .btn-primary {
-    background: var(--redo-orange);
+    background: var(--redo-dark);
     color: var(--redo-bg);
-    font-size: 14px;
-    font-weight: 600;
-    padding: 14px 32px;
-    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px 28px;
+    border-radius: 6px;
     transition: all 0.2s ease;
+    letter-spacing: -0.01em;
 }
 
 .btn-primary:hover {
-    background: #e88a0f;
+    background: #000000;
     transform: translateY(-1px);
 }
 
