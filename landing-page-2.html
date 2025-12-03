@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerSIM - Health AI Platform</title>
+    <style>
+        /* ============================================
+           RESET & BASE STYLES
+           Medical/Health SaaS clean design
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f7fb;
+            color: #151728;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Container for centered content */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* ============================================
+           TOP NAVIGATION BAR
+           Pill-shaped nav items with profile icon
+           ============================================ */
+        .navbar {
+            background: #ffffff;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(21, 23, 40, 0.04);
+        }
+
+        .navbar__container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+        }
+
+        /* Brand logo - pill shape with icon */
+        .navbar__brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 20px;
+            background: #ffffff;
+            border: 1px solid #e8eaf0;
+            border-radius: 24px;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(21, 23, 40, 0.04);
+        }
+
+        .navbar__brand-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .navbar__brand-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: #151728;
+        }
+
+        /* Center navigation - pill items */
+        .navbar__nav {
+            display: flex;
+            gap: 12px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .navbar__nav-item {
+            padding: 10px 24px;
+            background: #ffffff;
+            border: 1px solid #e8eaf0;
+            border-radius: 24px;
+            text-decoration: none;
+            color: #151728;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(21, 23, 40, 0.02);
+        }
+
+        .navbar__nav-item:hover {
+            background: #f5f7fb;
+            box-shadow: 0 4px 12px rgba(21, 23, 40, 0.08);
+            transform: translateY(-1px);
+        }
+
+        /* Right side with profile and contact */
+        .navbar__right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .navbar__profile {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: 2px solid #ffffff;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .navbar__profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .navbar__contact {
+            padding: 10px 24px;
+            background: #ffffff;
+            border: 2px solid #151728;
+            border-radius: 24px;
+            color: #151728;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .navbar__contact:hover {
+            background: #151728;
+            color: #ffffff;
+        }
+
+        /* ============================================
+           MAIN HERO SECTION
+           Split-screen: left text, right abstract visual
+           ============================================ */
+        .hero {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .hero__container {
+            display: grid;
+            grid-template-columns: 55% 45%;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* Left hero content */
+        .hero__left {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Top label with line and text */
+        .hero__label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .hero__label-line {
+            width: 40px;
+            height: 2px;
+            background: #667eea;
+        }
+
+        .hero__label-text {
+            font-size: 12px;
+            font-weight: 600;
+            color: #667eea;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Main heading */
+        .hero__heading {
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.1;
+            color: #151728;
+            margin-bottom: 24px;
+            letter-spacing: -1.5px;
+        }
+
+        /* Subtext paragraph */
+        .hero__subtext {
+            font-size: 16px;
+            color: #64677c;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        /* CTA buttons */
+        .hero__cta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .hero__btn-primary {
+            padding: 16px 40px;
+            background: #151728;
+            color: #ffffff;
+            border: none;
+            border-radius: 32px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero__btn-primary:hover {
+            background: #2a2d45;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(21, 23, 40, 0.2);
+        }
+
+        .hero__btn-secondary {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 2px solid #e8eaf0;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 20px;
+        }
+
+        .hero__btn-secondary:hover {
+            background: #f5f7fb;
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        /* Scroll indicator */
+        .hero__scroll {
+            position: absolute;
+            bottom: 0;
+            left: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero__scroll-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid #e8eaf0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            color: #64677c;
+        }
+
+        .hero__scroll-arrow {
+            font-size: 20px;
+            color: #64677c;
+        }
+
+        /* Right hero content - abstract visual */
+        .hero__right {
+            position: relative;
+            height: 600px;
+            border-radius: 24px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ffeef8 0%, #e8f3ff 50%, #fff5e8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Central glass effect circle */
+        .hero__glass-circle {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.5) 0px,
+                    rgba(255, 255, 255, 0.5) 8px,
+                    rgba(102, 126, 234, 0.1) 8px,
+                    rgba(102, 126, 234, 0.1) 16px
+                );
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Glassmorphism card overlay */
+        .hero__card {
+            position: absolute;
+            top: 60px;
+            right: 40px;
+            width: 280px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(21, 23, 40, 0.08);
+        }
+
+        .hero__card-text {
+            font-size: 13px;
+            color: #64677c;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .hero__card-author {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero__card-user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero__card-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .hero__card-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .hero__card-username {
+            font-size: 12px;
+            font-weight: 600;
+            color: #151728;
+        }
+
+        .hero__card-role {
+            font-size: 11px;
+            color: #64677c;
+        }
+
+        .hero__card-arrow {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #151728;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* ============================================
+           LOWER CONTENT SECTION
+           Three-column layout with cards
+           ============================================ */
+        .content {
+            padding: 80px 0;
+        }
+
+        .content__container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* Left block - Future in your hands */
+        .content__block-left {
+            padding: 32px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(21, 23, 40, 0.04);
+        }
+
+        .content__heading {
+            font-size: 24px;
+            font-weight: 700;
+            color: #151728;
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+
+        .content__tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .content__tag {
+            padding: 10px 20px;
+            background: #ffffff;
+            border: 1px solid #e8eaf0;
+            border-radius: 24px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #151728;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .content__tag:hover {
+            background: #f5f7fb;
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        /* Center block - AI Monitoring card */
+        .content__block-center {
+            padding: 32px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(21, 23, 40, 0.04);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .content__card-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #ffeef8 0%, #e8f3ff 100%);
+            flex-shrink: 0;
+        }
+
+        .content__card-text {
+            flex: 1;
+        }
+
+        .content__card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #151728;
+            margin-bottom: 12px;
+        }
+
+        .content__card-description {
+            font-size: 13px;
+            color: #64677c;
+            line-height: 1.6;
+        }
+
+        .content__card-arrow {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #e8eaf0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 16px;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .content__card-arrow:hover {
+            background: #151728;
+            color: #ffffff;
+            border-color: #151728;
+        }
+
+        /* Right block - Stats */
+        .content__block-right {
+            padding: 32px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(21, 23, 40, 0.04);
+        }
+
+        .content__stats-text {
+            font-size: 13px;
+            color: #64677c;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .content__stats-items {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .content__stat-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .content__stat-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #151728;
+        }
+
+        .content__stat-pill {
+            padding: 8px 16px;
+            background: #ffffff;
+            border: 1px solid #e8eaf0;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #151728;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .content__stat-arrow {
+            font-size: 12px;
+            color: #64677c;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           Stack elements on smaller screens
+           ============================================ */
+        @media (max-width: 1024px) {
+            .hero__container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero__right {
+                height: 500px;
+            }
+
+            .hero__heading {
+                font-size: 52px;
+            }
+
+            .content__container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            .navbar__container {
+                flex-wrap: wrap;
+            }
+
+            .navbar__nav {
+                order: 3;
+                flex-basis: 100%;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero__heading {
+                font-size: 42px;
+            }
+
+            .hero__right {
+                height: 400px;
+            }
+
+            .hero__card {
+                width: 240px;
+                padding: 20px;
+                right: 20px;
+                top: 40px;
+            }
+
+            .hero__glass-circle {
+                width: 200px;
+                height: 200px;
+            }
+
+            .hero__scroll {
+                display: none;
+            }
+
+            .content {
+                padding: 60px 0;
+            }
+
+            .content__block-center {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero__heading {
+                font-size: 36px;
+            }
+
+            .hero__cta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar__nav-item {
+                font-size: 13px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         TOP NAVIGATION BAR
+         Pill-shaped items with profile and contact button
+         ============================================ -->
+    <nav class="navbar">
+        <div class="container navbar__container">
+            <!-- Brand logo with circular icon -->
+            <a href="#" class="navbar__brand">
+                <div class="navbar__brand-icon">C</div>
+                <span class="navbar__brand-text">CareerSIM</span>
+            </a>
+
+            <!-- Center navigation pills -->
+            <div class="navbar__nav">
+                <a href="#" class="navbar__nav-item">Home</a>
+                <a href="#" class="navbar__nav-item">Features</a>
+                <a href="#" class="navbar__nav-item">Pricing</a>
+                <a href="#" class="navbar__nav-item">About us</a>
+            </div>
+
+            <!-- Right side: profile and contact -->
+            <div class="navbar__right">
+                <div class="navbar__profile">
+                    <!-- Profile picture would go here -->
+                </div>
+                <button class="navbar__contact">Contact us</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         MAIN HERO SECTION
+         Split layout: left text, right abstract visual
+         ============================================ -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero__container">
+                <!-- Left hero content -->
+                <div class="hero__left">
+                    <!-- Top label with line -->
+                    <div class="hero__label">
+                        <div class="hero__label-line"></div>
+                        <span class="hero__label-text">Create your own Future, step by step</span>
+                    </div>
+
+                    <!-- Main heading -->
+                    <h1 class="hero__heading">Create your Career<br>The way you want<br>Today</h1>
+
+                    <!-- Subtext paragraph -->
+                    <p class="hero__subtext">
+                        Learn the dangers of drugs and how to resist peer pressure. Get help for drug 
+                        addiction and find support by AI
+                    </p>
+
+                    <!-- CTA buttons -->
+                    <div class="hero__cta">
+                        <button class="hero__btn-primary">EXPLORE MORE</button>
+                        <button class="hero__btn-secondary">→</button>
+                    </div>
+                </div>
+
+                <!-- Right hero content - abstract visual -->
+                <div class="hero__right">
+                    <!-- Central glass circle effect -->
+                    <div class="hero__glass-circle"></div>
+
+                    <!-- Glassmorphism overlay card -->
+                    <div class="hero__card">
+                        <p class="hero__card-text">
+                            Learn how to resist peer pressure and make healthy choices
+                        </p>
+                        <div class="hero__card-author">
+                            <div class="hero__card-user">
+                                <div class="hero__card-avatar"></div>
+                                <div class="hero__card-info">
+                                    <div class="hero__card-username">@_mickelflin</div>
+                                    <div class="hero__card-role">Consultant</div>
+                                </div>
+                            </div>
+                            <div class="hero__card-arrow">→</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="hero__scroll">
+                <div class="hero__scroll-circle">Scroll</div>
+                <div class="hero__scroll-arrow">↓</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         LOWER CONTENT SECTION
+         Three-column layout with feature blocks
+         ============================================ -->
+    <section class="content">
+        <div class="container">
+            <div class="content__container">
+                
+                <!-- Left block: Future in your hands -->
+                <div class="content__block-left">
+                    <h2 class="content__heading">Your Future in your Hands</h2>
+                    <div class="content__tags">
+                        <div class="content__tag">Interview AI</div>
+                        <div class="content__tag">Exercises</div>
+                        <div class="content__tag">Career Advisor</div>
+                        <div class="content__tag">Job/ Uni finder</div>
+                    </div>
+                </div>
+
+                <!-- Center block: AI Monitoring feature card -->
+                <div class="content__block-center">
+                    <div class="content__card-image"></div>
+                    <div class="content__card-text">
+                        <h3 class="content__card-title">AI Monitoring patient progress</h3>
+                        <p class="content__card-description">
+                            AI provide patients with support & education about treatment and it can 
+                            help to improve patient compliance & adherence to treatment plans.
+                        </p>
+                    </div>
+                    <div class="content__card-arrow">→</div>
+                </div>
+
+                <!-- Right block: Patient stats -->
+                <div class="content__block-right">
+                    <p class="content__stats-text">
+                        Patients who recovered and enjoying their free life with beautiful family
+                    </p>
+                    <div class="content__stats-items">
+                        <div class="content__stat-item">
+                            <span class="content__stat-label">Men Patients</span>
+                            <div class="content__stat-pill">
+                                2.3k <span class="content__stat-arrow">↓</span>
+                            </div>
+                        </div>
+                        <div class="content__stat-item">
+                            <span class="content__stat-label">Women Patients</span>
+                            <div class="content__stat-pill">
+                                1.8k <span class="content__stat-arrow">↓</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

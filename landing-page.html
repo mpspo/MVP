@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career SIM - Create Your Path Your Way</title>
+    <style>
+        /* ============================================
+           RESET & BASE STYLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f6fb;
+            color: #111;
+            line-height: 1.6;
+        }
+
+        /* Container for centered content */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* ============================================
+           TOP NAVIGATION BAR
+           Horizontal layout with brand, center nav, right nav, and menu button
+           ============================================ */
+        .navbar {
+            background: #ffffff;
+            border-bottom: 1px solid #e8e9f0;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar__container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        /* Brand logo on the left */
+        .navbar__brand {
+            font-size: 22px;
+            font-weight: 700;
+            color: #111;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        /* Center navigation group */
+        .navbar__nav-center {
+            display: flex;
+            gap: 32px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .navbar__link {
+            text-decoration: none;
+            color: #555;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .navbar__link:hover {
+            color: #111;
+        }
+
+        .navbar__link--active {
+            color: #111;
+            font-weight: 700;
+        }
+
+        /* Right navigation group */
+        .navbar__nav-right {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        /* Menu button (pill shape) */
+        .navbar__menu-btn {
+            padding: 10px 24px;
+            border: 1px solid #d0d2dc;
+            border-radius: 24px;
+            background: #fafbfc;
+            color: #111;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .navbar__menu-btn:hover {
+            background: #f0f1f5;
+        }
+
+        /* ============================================
+           HERO SECTION
+           Large text block with CTA button
+           ============================================ */
+        .hero {
+            background: #ffffff;
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative background elements */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            right: 15%;
+            width: 120px;
+            height: 120px;
+            border: 2px solid #e8e9f0;
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .hero::after {
+            content: '★';
+            position: absolute;
+            top: 30%;
+            right: 8%;
+            font-size: 32px;
+            color: #e8e9f0;
+            opacity: 0.6;
+        }
+
+        .hero__container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Left-aligned text block */
+        .hero__content {
+            max-width: 750px;
+        }
+
+        /* Small overline text */
+        .hero__overline {
+            font-size: 16px;
+            color: #888;
+            font-weight: 500;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Large main heading */
+        .hero__heading {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.1;
+            color: #111;
+            margin-bottom: 40px;
+            letter-spacing: -1.5px;
+        }
+
+        /* CTA section with button and inline text */
+        .hero__cta {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        /* Primary CTA button */
+        .hero__btn {
+            padding: 18px 40px;
+            background: #1c1f2a;
+            color: #ffffff;
+            border: none;
+            border-radius: 32px;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero__btn:hover {
+            background: #0a0c14;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(28, 31, 42, 0.3);
+        }
+
+        /* Inline text next to button */
+        .hero__subtext {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .hero__subtext-line1 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .hero__subtext-line2 {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* ============================================
+           FEATURE CARDS SECTION
+           Three equal-width cards with different designs
+           ============================================ */
+        .cards {
+            padding: 0;
+            margin: 0;
+        }
+
+        .cards__grid {
+            display: flex;
+            width: 100%;
+            height: 500px;
+            gap: 0;
+        }
+
+        /* Base card styling */
+        .card {
+            border-radius: 0;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            flex: 1;
+            transition: flex 0.4s ease;
+            cursor: pointer;
+        }
+
+        /* Hover effect - card expands */
+        .card:hover {
+            flex: 1.5;
+        }
+
+        /* Badge number in top-left of each card */
+        .card__badge {
+            width: 48px;
+            height: 48px;
+            border-radius: 0;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: auto;
+        }
+
+        /* ============================================
+           CARD 1: Learn from mentors
+           Light background with gradient
+           ============================================ */
+        .card--mentors {
+            background: linear-gradient(135deg, #f0f1f5 0%, #e8e9f0 100%);
+            justify-content: space-between;
+        }
+
+        .card--mentors .card__badge {
+            border-color: #999;
+            color: #111;
+        }
+
+        .card--mentors .card__text {
+            font-size: 20px;
+            font-weight: 600;
+            color: #111;
+            margin-bottom: 16px;
+        }
+
+        .card--mentors .card__btn {
+            padding: 14px 28px;
+            border: 2px solid #111;
+            border-radius: 28px;
+            background: transparent;
+            color: #111;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            align-self: flex-start;
+        }
+
+        .card--mentors .card__btn:hover {
+            background: #111;
+            color: #fff;
+        }
+
+        /* ============================================
+           CARD 2: Features list
+           Orange/pink gradient background
+           ============================================ */
+        .card--features {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 50%, #ffd93d 100%);
+            position: relative;
+        }
+
+        .card--features .card__badge {
+            border-color: rgba(255, 255, 255, 0.5);
+            color: #fff;
+        }
+
+        .card--features .card__list {
+            margin-left: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 32px;
+            border-radius: 16px;
+            max-width: 220px;
+        }
+
+        .card--features .card__list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card--features .card__list-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .card--features .card__arrow {
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        /* ============================================
+           CARD 3: Statistics
+           Purple/blue gradient background
+           ============================================ */
+        .card--stats {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            justify-content: space-between;
+        }
+
+        .card--stats .card__badge {
+            border-color: rgba(255, 255, 255, 0.5);
+            color: #fff;
+        }
+
+        .card--stats .card__stats {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+        }
+
+        .card--stats .card__stat-number {
+            font-size: 72px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+            letter-spacing: -2px;
+        }
+
+        .card--stats .card__stat-text {
+            flex: 1;
+            font-size: 16px;
+            color: #fff;
+            line-height: 1.5;
+            padding-top: 8px;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           Stack navigation and cards on smaller screens
+           ============================================ */
+        @media (max-width: 1024px) {
+            .hero__heading {
+                font-size: 52px;
+            }
+
+            .cards__grid {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .card {
+                min-height: 360px;
+            }
+
+            .card:hover {
+                flex: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            /* Navigation stacks more compactly */
+            .navbar__nav-center,
+            .navbar__nav-right {
+                gap: 20px;
+            }
+
+            .navbar__link {
+                font-size: 14px;
+            }
+
+            /* Hero text shrinks */
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            .hero__heading {
+                font-size: 42px;
+            }
+
+            .hero__cta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .hero__btn {
+                padding: 16px 32px;
+                font-size: 14px;
+            }
+
+            /* Cards adjust for mobile */
+            .card {
+                min-height: 320px;
+                padding: 32px;
+            }
+
+            .card--features .card__list {
+                max-width: 100%;
+                padding: 24px;
+            }
+
+            .card--stats .card__stats {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .card--stats .card__stat-number {
+                font-size: 56px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            /* Very small screens: nav wraps more */
+            .navbar__container {
+                gap: 20px;
+            }
+
+            .navbar__nav-center {
+                order: 3;
+                flex-basis: 100%;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .navbar__nav-right {
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .hero__heading {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         TOP NAVIGATION BAR
+         Brand on left, center nav, right nav, menu button
+         ============================================ -->
+    <header class="navbar">
+        <div class="container navbar__container">
+            <!-- Brand logo -->
+            <a href="#" class="navbar__brand">Career SIM</a>
+
+            <!-- Center navigation links -->
+            <nav class="navbar__nav-center">
+                <a href="#" class="navbar__link navbar__link--active">Home page</a>
+                <a href="#" class="navbar__link">Generator</a>
+                <a href="#" class="navbar__link">Pricing-plan</a>
+                <a href="#" class="navbar__link">Blog - News</a>
+            </nav>
+
+            <!-- Right navigation links -->
+            <nav class="navbar__nav-right">
+                <a href="#" class="navbar__link">About us</a>
+                <a href="#" class="navbar__link">Features</a>
+                <a href="#" class="navbar__link">FAQ's</a>
+                <a href="#" class="navbar__link">Career</a>
+            </nav>
+
+            <!-- Menu button -->
+            <button class="navbar__menu-btn">Menu ▾</button>
+        </div>
+    </header>
+
+    <!-- ============================================
+         HERO SECTION
+         Large heading with CTA button
+         ============================================ -->
+    <section class="hero">
+        <div class="container hero__container">
+            <div class="hero__content">
+                <!-- Small overline text -->
+                <div class="hero__overline">Revolutionize Your</div>
+
+                <!-- Large main heading -->
+                <h1 class="hero__heading">Create your Path your way</h1>
+
+                <!-- CTA area with button and inline text -->
+                <div class="hero__cta">
+                    <button class="hero__btn">START GENERATING</button>
+                    <div class="hero__subtext">
+                        <span class="hero__subtext-line1">This is your future now</span>
+                        <span class="hero__subtext-line2">Begin your journey today</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FEATURE CARDS SECTION
+         Three cards showcasing different features
+         ============================================ -->
+    <section class="cards">
+        <div class="cards__grid">
+
+                <!-- Card 1: Learn from mentors -->
+                <div class="card card--mentors">
+                    <div class="card__badge">01</div>
+                    <div>
+                        <div class="card__text">Learn from best mentors</div>
+                        <button class="card__btn">START LEARNING →</button>
+                    </div>
+                </div>
+
+                <!-- Card 2: Features list -->
+                <div class="card card--features">
+                    <div class="card__badge">02</div>
+                    <div class="card__list">
+                        <div class="card__list-item">
+                            <span>Free Edit</span>
+                            <span class="card__arrow">→</span>
+                        </div>
+                        <div class="card__list-item">
+                            <span>Interactive</span>
+                            <span class="card__arrow">→</span>
+                        </div>
+                        <div class="card__list-item">
+                            <span>Easy interface</span>
+                            <span class="card__arrow">→</span>
+                        </div>
+                        <div class="card__list-item">
+                            <span>Compare to other</span>
+                            <span class="card__arrow">→</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Statistics -->
+                <div class="card card--stats">
+                    <div class="card__badge">03</div>
+                    <div class="card__stats">
+                        <div class="card__stat-number">+20K</div>
+                        <div class="card__stat-text">
+                            Glass Pattern generated this week in the first release.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </section>
+
+</body>
+</html>
