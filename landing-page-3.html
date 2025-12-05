@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redo - Brand Guidelines</title>
+    <style>
+        /* ============================================
+           RESET & BASE STYLES
+           Modern • Minimal • Professional • Premium
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #ffffff;
+            color: #111111;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           MAIN LAYOUT CONTAINER
+           Sidebar + Main Content
+           ============================================ */
+        .page-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ============================================
+           LEFT SIDEBAR
+           Fixed navigation on the left
+           ============================================ */
+        .sidebar {
+            width: 260px;
+            height: 100vh;
+            background: #ffffff;
+            border-right: 1px solid #e8e8e8;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            top: 0;
+        }
+
+        /* Logo section at top */
+        .sidebar__logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 60px;
+        }
+
+        .sidebar__logo-icon {
+            width: 32px;
+            height: 32px;
+            background: #111111;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .sidebar__logo-text {
+            font-size: 20px;
+            font-weight: 600;
+            color: #111111;
+            letter-spacing: -0.5px;
+        }
+
+        /* Main navigation list */
+        .sidebar__nav {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .sidebar__nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: #444444;
+            font-size: 15px;
+            font-weight: 400;
+            transition: color 0.2s ease;
+            padding: 4px 0;
+        }
+
+        .sidebar__nav-item:hover {
+            color: #111111;
+        }
+
+        .sidebar__nav-number {
+            font-size: 11px;
+            color: #999999;
+            font-weight: 500;
+        }
+
+        /* Bottom links */
+        .sidebar__footer {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding-top: 40px;
+            border-top: 1px solid #e8e8e8;
+        }
+
+        .sidebar__footer-link {
+            text-decoration: none;
+            color: #444444;
+            font-size: 14px;
+            font-weight: 400;
+            transition: color 0.2s ease;
+        }
+
+        .sidebar__footer-link:hover {
+            color: #111111;
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           MAIN CONTENT AREA
+           Right side of page
+           ============================================ */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ============================================
+           HERO BANNER
+           Top section with gradient background
+           ============================================ */
+        .hero-banner {
+            width: 100%;
+            height: 800px;
+            background: radial-gradient(
+                circle at 30% 40%, 
+                #a8d5e2 0%, 
+                #ffd89b 35%, 
+                #f6f6f6 70%, 
+                #c9d6df 100%
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Centered wordmark with icon */
+        .hero-banner__wordmark {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .hero-banner__arrow {
+            font-size: 56px;
+            color: #ffffff;
+            font-weight: 300;
+            transform: rotate(-45deg);
+        }
+
+        .hero-banner__text {
+            font-size: 56px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -1px;
+        }
+
+        /* ============================================
+           CONTENT SECTION
+           Bottom white section with two columns
+           ============================================ */
+        .content-section {
+            background: #ffffff;
+            padding: 80px 60px 100px;
+        }
+
+        .content-section__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        /* Left column - Large heading */
+        .content-section__left {
+            position: sticky;
+            top: 80px;
+        }
+
+        .content-section__heading {
+            font-size: 48px;
+            font-weight: 700;
+            color: #111111;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+        }
+
+        /* Right column - Paragraph text */
+        .content-section__right {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            max-width: 520px;
+        }
+
+        .content-section__paragraph {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #333333;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        
+        /* Tablet view */
+        @media (max-width: 1024px) {
+            .content-section {
+                padding: 60px 40px 80px;
+            }
+
+            .content-section__container {
+                gap: 60px;
+            }
+
+            .sidebar {
+                width: 220px;
+                padding: 30px 20px;
+            }
+
+            .hero-banner {
+                height: 650px;
+            }
+
+            .hero-banner__text {
+                font-size: 48px;
+            }
+
+            .hero-banner__arrow {
+                font-size: 48px;
+            }
+        }
+
+        /* Mobile view */
+        @media (max-width: 768px) {
+            .page-wrapper {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid #e8e8e8;
+                padding: 30px 24px;
+                position: relative;
+            }
+
+            .sidebar__nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 16px;
+                margin-bottom: 30px;
+            }
+
+            .sidebar__nav-item {
+                font-size: 14px;
+            }
+
+            .sidebar__footer {
+                flex-direction: row;
+                gap: 24px;
+                padding-top: 24px;
+                border-top: 1px solid #e8e8e8;
+            }
+
+            .hero-banner {
+                height: 500px;
+            }
+
+            .hero-banner__text {
+                font-size: 36px;
+            }
+
+            .hero-banner__arrow {
+                font-size: 36px;
+            }
+
+            .content-section {
+                padding: 50px 24px 60px;
+            }
+
+            .content-section__container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .content-section__left {
+                position: relative;
+                top: 0;
+            }
+
+            .content-section__heading {
+                font-size: 36px;
+            }
+
+            .content-section__right {
+                max-width: 100%;
+            }
+
+            .content-section__paragraph {
+                font-size: 15px;
+            }
+        }
+
+        /* Small mobile */
+        @media (max-width: 480px) {
+            .hero-banner {
+                height: 240px;
+            }
+
+            .hero-banner__text {
+                font-size: 32px;
+            }
+
+            .hero-banner__arrow {
+                font-size: 32px;
+            }
+
+            .content-section__heading {
+                font-size: 32px;
+            }
+
+            .sidebar__nav {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         PAGE WRAPPER
+         Contains sidebar and main content
+         ============================================ -->
+    <div class="page-wrapper">
+
+        <!-- ============================================
+             LEFT SIDEBAR
+             Fixed navigation with logo, nav items, and footer
+             ============================================ -->
+        <aside class="sidebar">
+            <!-- Logo at top -->
+            <div class="sidebar__logo">
+                <div class="sidebar__logo-icon">R</div>
+                <span class="sidebar__logo-text">Redo</span>
+            </div>
+
+            <!-- Main navigation list -->
+            <nav class="sidebar__nav">
+                <a href="#" class="sidebar__nav-item">
+                    <span>Brand Strategy</span>
+                    <span class="sidebar__nav-number">01</span>
+                </a>
+                <a href="#" class="sidebar__nav-item">
+                    <span>Personality</span>
+                    <span class="sidebar__nav-number">02</span>
+                </a>
+                <a href="#" class="sidebar__nav-item">
+                    <span>Logo</span>
+                    <span class="sidebar__nav-number">03</span>
+                </a>
+                <a href="#" class="sidebar__nav-item">
+                    <span>Color</span>
+                    <span class="sidebar__nav-number">04</span>
+                </a>
+                <a href="#" class="sidebar__nav-item">
+                    <span>Typography</span>
+                    <span class="sidebar__nav-number">05</span>
+                </a>
+                <a href="#" class="sidebar__nav-item">
+                    <span>Art Direction</span>
+                    <span class="sidebar__nav-number">06</span>
+                </a>
+            </nav>
+
+            <!-- Footer links -->
+            <div class="sidebar__footer">
+                <a href="#" class="sidebar__footer-link">Download Kit</a>
+                <a href="#" class="sidebar__footer-link">Contact Us</a>
+            </div>
+        </aside>
+
+        <!-- ============================================
+             MAIN CONTENT AREA
+             Contains hero banner and content section
+             ============================================ -->
+        <main class="main-content">
+
+            <!-- ============================================
+                 HERO BANNER
+                 Gradient background with centered wordmark
+                 ============================================ -->
+            <section class="hero-banner">
+                <div class="hero-banner__wordmark">
+                    <div class="hero-banner__arrow">↗</div>
+                    <h1 class="hero-banner__text">Redo</h1>
+                </div>
+            </section>
+
+            <!-- ============================================
+                 CONTENT SECTION
+                 Two-column layout: heading left, text right
+                 ============================================ -->
+            <section class="content-section">
+                <div class="content-section__container">
+                    
+                    <!-- Left column: Large heading -->
+                    <div class="content-section__left">
+                        <h2 class="content-section__heading">Brand<br>Guidelines</h2>
+                    </div>
+
+                    <!-- Right column: Paragraph text -->
+                    <div class="content-section__right">
+                        <p class="content-section__paragraph">
+                            These brand guidelines define our visual language, design style, and the 
+                            consistent brand experience we aim to deliver across all touchpoints. They 
+                            serve as the foundation for how we present ourselves to the world.
+                        </p>
+                        <p class="content-section__paragraph">
+                            At Redo, we believe in precision, clarity, and a relentless mission to 
+                            correct financial errors and optimize balance sheets. Our brand reflects 
+                            this commitment through clean design, purposeful typography, and a cohesive 
+                            color palette that inspires confidence and trust.
+                        </p>
+                        <p class="content-section__paragraph">
+                            Whether you're creating digital experiences or printed materials, these 
+                            guidelines will help you maintain the integrity of our brand. By following 
+                            these principles, we ensure that every interaction reinforces our values 
+                            of trust, efficiency, and innovation.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
